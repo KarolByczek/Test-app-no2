@@ -1,25 +1,77 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import { useState } from "react";
+import { Quote } from "./components/Quote";
+import { Button } from "./components/Button";
+
+
+export interface Quoter {
+  text: string;
+  author: string;
+}
+
+const quoteArray: Quoter[] = [
+  {
+    text: "When you look into abyss, the abyss looks into you.",
+    author: "Nitche",
+  },
+
+  {
+    text: "Let your spirit descend and revitalise the face of this land!",
+    author: "John Paul II",
+  },
+
+  {
+    text: "Mr Gorbachov, tear down this wall!",
+    author: "Ronald Reagan",
+  },
+
+  {
+    text: "I did not, I repeat, i did not sleep with this young intern!",
+    author: "Bill Clinton",
+  },
+
+  {
+    text: "I am become death, the destroyer of worlds.",
+    author: "Robert Oppenheimer",
+  },
+];
+
 
 function App() {
+
+  const [quote0, setCurrentQuote] = useState<Quoter>(quoteArray[0]);
+
+  const handleGenerateQuoteClick = () => {
+    var randomIndex: number = Math.floor(Math.random() * 3.9) + 1;
+    var singleQuote = quoteArray[randomIndex];
+    setCurrentQuote(singleQuote);
+  };
+  
+  const handleShareQuoteClick = () => {
+    console.log("The drawn quote is:");
+    console.log(handleGenerateQuoteClick);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="main">
+      <Quote 
+        quote={quote0}
+        className={"svmbeor"}
+       />
+      <div>
+        <Button
+          onClick={handleGenerateQuoteClick}
+          className={"button-generate"}
+          children={<p>Change the quote!</p>}
+        />
+        <Button
+          onClick={handleShareQuoteClick}
+          className={"button-share"}
+          children={<p>Share the quote!</p>}
+        />
+      </div>
+    </main>
   );
 }
 
