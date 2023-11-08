@@ -1,21 +1,14 @@
-import React from "react";
-import type {Quoter} from "../App";
+import { Quoter } from "../App";
 
- export interface QuoteProps {
-    quote:Quoter
-    className:string
+export interface QuoteProps {
+  quote: Quoter;
 }
 
-export const Quote = ({quote}:QuoteProps, {className}:QuoteProps) => {
-
-    return (
-        <div>
-            <p className={className}>
-                {quote.text}
-            </p>
-            <p className={className}>
-                {quote.author}
-            </p>
-        </div>
-    )
+export const Quote = ({ quote }: QuoteProps) => {
+  return (
+    <div className="quotation_box">
+      <p>{quote.text}</p>
+      <p>{quote.author}</p>
+    </div>
+  );
 };

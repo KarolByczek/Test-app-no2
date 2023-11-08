@@ -1,9 +1,7 @@
-import React from "react";
-import "./App.scss";
 import { useState } from "react";
 import { Quote } from "./components/Quote";
 import { Button } from "./components/Button";
-
+import "./App.scss";
 
 export interface Quoter {
   text: string;
@@ -37,38 +35,32 @@ const quoteArray: Quoter[] = [
   },
 ];
 
-
 function App() {
-
   const [quote0, setCurrentQuote] = useState<Quoter>(quoteArray[0]);
 
   const handleGenerateQuoteClick = () => {
-    var randomIndex: number = Math.floor(Math.random() * 3.9) + 1;
-    var singleQuote = quoteArray[randomIndex];
-    setCurrentQuote(singleQuote);
+    var randomIndex: number = Math.floor(Math.random() * 4.9);
+    setCurrentQuote(quoteArray[randomIndex]);
   };
-  
+
   const handleShareQuoteClick = () => {
     console.log("The drawn quote is:");
-    console.log(handleGenerateQuoteClick);
+    console.log(quote0);
   };
 
   return (
     <main className="main">
-      <Quote 
-        quote={quote0}
-        className={"svmbeor"}
-       />
-      <div>
+      <Quote quote={quote0} />
+      <div className="button_box">
         <Button
           onClick={handleGenerateQuoteClick}
-          className={"button-generate"}
-          children={<p>Change the quote!</p>}
+          className="button button_generate"
+          children={<span>Generate quote!</span>}
         />
         <Button
           onClick={handleShareQuoteClick}
-          className={"button-share"}
-          children={<p>Share the quote!</p>}
+          className="button button_share"
+          children={<span>Share quote!</span>}
         />
       </div>
     </main>
