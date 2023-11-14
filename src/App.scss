@@ -15,7 +15,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  .quotation_box {
+  .quotation__box {
     height: 10rem;
     font-size: $quotation-text-thickness;
     font-family: monospace;
@@ -26,9 +26,28 @@
     margin-bottom: 1em;
     border-radius: 30px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
+
+      .picture__box {
+        display: flex;
+        flex-direction: column;
+        width: 10rem;
+        height: 10rem;
+
+        a img {
+          display: block;
+          width: 9rem;
+          height: 9rem;
+          font-size: small;
+          text-align: center
+        };
+
+        p {
+          font-size: small;
+        };
+
+      };
   };
 
   .button_box {
