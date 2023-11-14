@@ -27,7 +27,9 @@
     border-radius: 30px;
     display: flex;
     flex-direction: row;
+    gap: 0.8rem;
     align-items: center;
+    justify-items: center;
 
       .picture__box {
         display: flex;
@@ -48,16 +50,20 @@
         };
 
       };
+
+      .quotation__text p {
+        text-align: center;
+      };
   };
 
-  .button_box {
+  .button__box {
     display: flex;
     flex-direction: row;
     align-self: center;
     gap: 20px;
 
 
-    .button_share {
+    .button__share {
       border-radius: 5px;
       border: 6px solid black;
       font-size: $button-text-thickness;
@@ -65,7 +71,7 @@
       background-color: blue;
     };
 
-    .button_generate {
+    .button__generate {
       border-radius: 5px;
       border: 2px solid black;
       font-size: $button-text-thickness;

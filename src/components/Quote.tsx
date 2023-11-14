@@ -13,9 +13,9 @@ export const Quote = ({quote}: QuoteProps) => {
         </a>
         <p>Click image for more information!</p>
       </div>
-      <div>
-        <p>{quote.text}</p>
-        <p>{quote.author}</p>
+      <div className="quotation__text">
+        <p><strong>"{quote.text}"</strong></p>
+        <p><small>{quote.author}</small></p>
       </div>
     </div>
   );
