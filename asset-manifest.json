@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/react-app-3/static/css/main.07075e0f.css",
+    "main.js": "/react-app-3/static/js/main.7eb7846d.js",
+    "static/js/787.903c050f.chunk.js": "/react-app-3/static/js/787.903c050f.chunk.js",
+    "static/media/Johnpaul.jpg": "/react-app-3/static/media/Johnpaul.67d999e09f54bfaf0879.jpg",
+    "static/media/Clinton.jpg": "/react-app-3/static/media/Clinton.b61d53d1ae2be6a06351.jpg",
+    "static/media/Reagan.jpg": "/react-app-3/static/media/Reagan.100ff9bc20fd0cb204f3.jpg",
+    "static/media/Nietzsche.jpg": "/react-app-3/static/media/Nietzsche.39a7fb0e764d800bbf41.jpg",
+    "static/media/Oppenheimer.jpeg": "/react-app-3/static/media/Oppenheimer.64c956d286d59a1d03a7.jpeg",
+    "index.html": "/react-app-3/index.html",
+    "main.07075e0f.css.map": "/react-app-3/static/css/main.07075e0f.css.map",
+    "main.7eb7846d.js.map": "/react-app-3/static/js/main.7eb7846d.js.map",
+    "787.903c050f.chunk.js.map": "/react-app-3/static/js/787.903c050f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07075e0f.css",
+    "static/js/main.7eb7846d.js"
+  ]
+}
