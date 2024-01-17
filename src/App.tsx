@@ -17,20 +17,22 @@ const firebaseConfig = {
   projectId: "data-base-01-82add",
   storageBucket: "data-base-01-82add.appspot.com",
   messagingSenderId: "152234854181",
-  appId: "1:152234854181:web:f1e5c72027c2786803bccc"
+  appId: "1:152234854181:web:f1e5c72027c2786803bccc",
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const querySnapshot:QuerySnapshot<DocumentData, DocumentData> = await getDocs(collection(db, "list_items"));
-querySnapshot.forEach((doc) => {
+const querySnapshot: QuerySnapshot<DocumentData, DocumentData> = await getDocs(
+  collection(db, "list_items")
+);
+querySnapshot.forEach((doc:DocumentData) => {
   console.log(doc.id);
   console.log(doc.data());
 });
 
-const one = querySnapshot.query;
-console.log(one);
+const one:any = querySnapshot.docs[2].data();
+console.log(one.name);
 
 export interface Quoter {
   text: string;
@@ -95,26 +97,30 @@ function App() {
   };
 
   return (
-    <main className="main">
-      <Quote quote={quote0} />
-      <div className="button__box">
-        <Button
-          onClick={handleGenerateQuoteClick}
-          className="button button__generate"
-        >Generate quote!
-        </Button>
-        <Button
-          onClick={handleShareQuoteClick}
-          className="button button__share"
-        >Share quote!
-        </Button>
-      </div>
-      <div>
-       {querySnapshot.docs.map((singledoc) => {
-          return <p key={Math.random()}>{singledoc.id}</p>
-       })}
-      </div>
-    </main>
+    <>
+      <main className="main">
+        <Quote quote={quote0} />
+        <div className="button__box">
+          <Button
+            onClick={handleGenerateQuoteClick}
+            className="button button__generate"
+          >
+            Generate quote!
+          </Button>
+          <Button
+            onClick={handleShareQuoteClick}
+            className="button button__share"
+          >
+            Share quote!
+          </Button>
+        </div>
+      </main>
+      <ul>
+        {querySnapshot.docs.map((doc) => {
+          return <li key={doc.data().id}>Hello, my name is {doc.data().name}</li>
+        })}
+      </ul>
+    </>
   );
 }
 
