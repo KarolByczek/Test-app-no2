@@ -6,7 +6,28 @@ import Clinton from "./assets/Clinton.jpg";
 import Johnpaul from "./assets/Johnpaul.jpg";
 import Reagan from "./assets/Reagan.jpg";
 import Oppenheimer from "./assets/Oppenheimer.jpeg";
+import { initializeApp } from "firebase/app";
+import { DocumentData, QuerySnapshot, getFirestore } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import "./App.scss";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDcvma9VDLpaFnru3Z58N60XO7rHPRqx3Q",
+  authDomain: "data-base-01-82add.firebaseapp.com",
+  projectId: "data-base-01-82add",
+  storageBucket: "data-base-01-82add.appspot.com",
+  messagingSenderId: "152234854181",
+  appId: "1:152234854181:web:f1e5c72027c2786803bccc"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const querySnapshot:QuerySnapshot = await getDocs(collection(db, "list_items"));
+querySnapshot.forEach((doc:DocumentData) => {
+  console.log(doc.id)
+  console.log(doc.data())
+});
 
 export interface Quoter {
   text: string;
@@ -85,6 +106,7 @@ function App() {
         >Share quote!
         </Button>
       </div>
+     
     </main>
   );
 }
