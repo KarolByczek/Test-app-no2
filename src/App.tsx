@@ -23,11 +23,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const querySnapshot:QuerySnapshot = await getDocs(collection(db, "list_items"));
-querySnapshot.forEach((doc:DocumentData) => {
-  console.log(doc.id)
-  console.log(doc.data())
+const querySnapshot:QuerySnapshot<DocumentData, DocumentData> = await getDocs(collection(db, "list_items"));
+querySnapshot.forEach((doc) => {
+  console.log(doc.id);
+  console.log(doc.data());
 });
+
+const one = querySnapshot.query;
+console.log(one);
 
 export interface Quoter {
   text: string;
@@ -106,7 +109,11 @@ function App() {
         >Share quote!
         </Button>
       </div>
-     
+      <div>
+       {querySnapshot.docs.map((singledoc) => {
+          return <p key={Math.random()}>{singledoc.id}</p>
+       })}
+      </div>
     </main>
   );
 }
